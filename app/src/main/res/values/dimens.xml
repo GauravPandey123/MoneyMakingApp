@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <dimen name="_200dp">200dp</dimen>
+    <dimen name="_60dp">60dp</dimen>
+    <dimen name="_80dp">80dp</dimen>
+    <dimen name="_20dp">20dp</dimen>
+    <dimen name="_130dp">130dp</dimen>
+    <dimen name="_150dp">150dp</dimen>
+    <dimen name="font_20sp">20sp</dimen>
+    <dimen name="font_40sp">40sp</dimen>
+    <dimen name="font_sixteen">16sp</dimen>
+    <dimen name="font_fourteen">14sp</dimen>
+    <dimen name="_100dp">100dp</dimen>
+    <dimen name="_8dp">8dp</dimen>
+    <dimen name="_40dp">40dp</dimen>
+    <dimen name="_4dp">4dp</dimen>
+    <dimen name="_2dp">2dp</dimen>
+    <dimen name="_10dp">10dp</dimen>
+    <dimen name="_32dp">32dp</dimen>
+    <dimen name="_250dp">250dp</dimen>
+    <dimen name="_120dp">120dp</dimen>
+    <dimen name="_160dp">160dp</dimen>
+    <dimen name="_10sdp">10dp</dimen>
+    <dimen name="_40sdp">40dp</dimen>
+    <dimen name="_20sdp">20dp</dimen>
+    <dimen name="_30sdp">30dp</dimen>
+    <dimen name="margin_small">4dp</dimen>
+    <dimen name="_12sdp">12dp</dimen>
+    <dimen name="_48sdp">48dp</dimen>
+    <dimen name="_60sdp">60dp</dimen>
+    <dimen name="_50sdp">50dp</dimen>
+    <dimen name="_5dp">5dp</dimen>
+    <dimen name="_32sdp">32dp</dimen>
+    <dimen name="_35sdp">35dp</dimen>
+    <dimen name="font_30sp">30sp</dimen>
+    <dimen name="_16dp">16dp</dimen>
+    <dimen name="_3dp">3dp</dimen>
+    <dimen name="_24dp">24dp</dimen>
+    <dimen name="_14dp">14dp</dimen>
+    <dimen name="_220dp">220</dimen>
+    <dimen name="_30dp">30dp</dimen>
+    <dimen name="app_bar_height">250dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="padd_10">10dp</dimen>
+    <dimen name="ic_delete">30dp</dimen>
+    <dimen name="thumbnail">90dp</dimen>
+    <dimen name="_140dp">140dp</dimen>
+    <dimen name="_300dp">300dp</dimen>
+    <dimen name="_190dp">190dp</dimen>
+</resources>
