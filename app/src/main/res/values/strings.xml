@@ -2,4 +2,17 @@
     <string name="app_name">Make Money Online</string>
     <string name="tittle">Title</string>
     <string name="way">Way</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+    <string name="nav_item_one">One</string>
+    <string name="nav_item_two">Two</string>
+    <string name="nav_item_three">Three</string>
+    <string name="dashboard">DashBoard</string>
+
+    <string-array name="nav_drawer_labels">
+        <item>@string/nav_item_one</item>
+        <item>@string/nav_item_two</item>
+        <item>@string/nav_item_three</item>
+    </string-array>
 </resources>

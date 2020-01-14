@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 
 class RetrofitService {
     companion object {
-        private const val BASE_URL = "https://adsandurlapp.com/driverapp/"
+        private const val BASE_URL = "https://demo.adsandurl.com/money-making/"
     }
 
     private fun getClient(): OkHttpClient {
@@ -30,8 +30,6 @@ class RetrofitService {
                     .addHeader("Content-Type", "application/json")
                     .addHeader("Appversion", "1.0")
                     .addHeader("Ostype","Android")
-                    .addHeader("Accesstoken","20813813795e020a181d81b1.62428545")
-                    .addHeader("Userid","7")
                     .build()
             )
         }

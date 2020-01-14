@@ -18,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+
             <ImageView
                 android:id="@+id/imageViewDashBoardItem"
                 android:layout_width="match_parent"
@@ -34,7 +35,7 @@
                 android:layout_marginTop="@dimen/_120dp"
                 android:layout_marginRight="@dimen/_8dp"
                 android:text="@string/tittle"
-                android:textColor="@color/white"
+                android:textColor="@color/dark_grey"
                 android:textSize="@dimen/font_20sp" />
 
             <TextView
