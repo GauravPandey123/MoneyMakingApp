@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/fragment_navigation_drawer"
-        android:name="com.makemoneyonline.ui.fragment.DrawerFragment"
+        android:name="com.android.ui.fragment.DrawerFragment"
         android:layout_width="280dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.makemoneyonline">
+    package="com.vaibhavi.android">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name="com.android.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".BaseApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".ui.activity.MainActivity"
+            android:name="com.android.ui.activity.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,11 +24,11 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="com.android.ui.activity.MainActivity" />
 
-
-<!--        <activity-->
-<!--            android:name=".ui.activity.DashBoardDetailActvity"-->
-<!--            android:screenOrientation="portrait" />-->
+        <activity
+            android:name="com.android.ui.activity.DashBoardDetailActvity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

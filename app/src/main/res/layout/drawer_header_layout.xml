@@ -8,21 +8,37 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_140dp"
         android:scaleType="fitXY"
-        android:src="@drawable/ic_menu_image"/>
+        android:src="@drawable/ic_menu_image" />
 
     <TextView
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/font_sixteen"
-        android:textColor="@color/white"
-        android:textStyle="bold"
+        android:layout_marginStart="@dimen/_8dp"
+        android:layout_marginLeft="@dimen/_8dp"
+        android:layout_marginTop="@dimen/_100dp"
 
         android:background="@drawable/gradient"
-        android:layout_marginStart="@dimen/_8dp"
-        android:layout_marginTop="@dimen/_100dp"
         android:text="@string/app_name"
-        android:layout_marginLeft="@dimen/_8dp" />
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_sixteen"
+        android:textStyle="bold" />
 
+
+    <TextView
+        android:id="@+id/textViewHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageViewDashBoardHeader"
+        android:textSize="@dimen/font_fourteen"
+        android:layout_margin="@dimen/_10dp"
+        android:textColor="@color/dark_grey"
+        android:text="@string/home"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/textViewHome"
+        android:background="@color/divider_color"/>
 
 
 </RelativeLayout>
