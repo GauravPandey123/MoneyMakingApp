@@ -83,15 +83,16 @@ class DashBoardFragment : Fragment() {
         if (servicesItem is ServicesItem) {
             when (event) {
                 DashBoardEnum.HomeEvent.event ->
-                    sendtonextActvity(servicesItem.id)
+                    sendtonextActvity(servicesItem.id,servicesItem.title)
 
             }
         }
     }
 
-    private fun sendtonextActvity(id: String?) {
+    private fun sendtonextActvity(id: String?,title :String?) {
         val intent = Intent(activity, DashBoardDetailActvity::class.java)
         intent.putExtra("id", id)
+        intent.putExtra("title",title)
         startActivity(intent)
         activity?.overridePendingTransition(R.anim.enter, R.anim.exit)
 

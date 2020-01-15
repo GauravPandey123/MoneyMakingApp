@@ -17,9 +17,11 @@ import com.android.model.dashboard.DashBaordResponse
 import com.android.model.dashboard.ServicesItem
 import com.android.ui.activity.DashBoardDetailActvity
 import com.android.ui.activity.MainActivity
+import com.android.ui.activity.PrivacyPolicyActivity
 import com.android.ui.adapter.NavigationAdapter
 import com.android.ui.viewmodel.DashBoardViewModel
 import com.vaibhavi.android.R
+import kotlinx.android.synthetic.main.drawer_footer_layout.*
 import kotlinx.android.synthetic.main.drawer_header_layout.*
 import kotlinx.android.synthetic.main.navigation_drawer_fragment.*
 import kotlin.collections.ArrayList
@@ -63,6 +65,12 @@ class DrawerFragment : Fragment() {
         textViewHome.setOnClickListener{
         }
 
+        textViewPrivacyPolicy.setOnClickListener {
+            val intent = Intent(activity, PrivacyPolicyActivity::class.java)
+            startActivity(intent)
+            activity?.overridePendingTransition(R.anim.enter, R.anim.exit)
+        }
+
     }
 
 
@@ -95,15 +103,16 @@ class DrawerFragment : Fragment() {
         if (servicesItem is ServicesItem) {
             when (event) {
                 DashBoardEnum.HomeEvent.event ->
-                    sendtonextActvity(servicesItem.id)
+                    sendtonextActvity(servicesItem.id,servicesItem.title)
 
             }
         }
     }
 
-    private fun sendtonextActvity(id: String?) {
+    private fun sendtonextActvity(id: String?,title: String ?) {
         val intent = Intent(activity, DashBoardDetailActvity::class.java)
         intent.putExtra("id", id)
+        intent.putExtra("title",title)
         startActivity(intent)
         mDrawerLayout?.closeDrawer(containerView!!)
         activity?.overridePendingTransition(R.anim.enter, R.anim.exit)

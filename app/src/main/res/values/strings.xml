@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Make Money Online</string>
+    <string name="app_name">Vaibhavi</string>
     <string name="tittle">Title</string>
     <string name="way">Way</string>
     <string name="drawer_open">Open</string>
@@ -11,8 +11,9 @@
     <string name="dashboard">DashBoard</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="setting">Settings</string>
-    <string name="about">About Money Make Online</string>
+    <string name="about">About Vaibhavi App</string>
     <string name="home">Home</string>
+    <string name="title">Title</string>
 
     <string-array name="nav_drawer_labels">
         <item>@string/nav_item_one</item>

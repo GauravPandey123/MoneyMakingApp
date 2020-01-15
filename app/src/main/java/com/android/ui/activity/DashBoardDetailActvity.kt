@@ -7,6 +7,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.vaibhavi.android.R
 import kotlinx.android.synthetic.main.dashboard_layout_detail.*
+import kotlinx.android.synthetic.main.main_toolbar.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 
@@ -15,21 +16,21 @@ class DashBoardDetailActvity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dashboard_layout_detail)
-        setSupportActionBar(custom_toolbar)
         val intent = intent
-        val id =intent.getStringExtra("id")
+        val id = intent.getStringExtra("id")
+        val title = intent.getStringExtra("title")
+        textViewTitle.text = title
         webviewDashBoardDetail.loadUrl("https://demo.adsandurl.com/money-making/get-detail.php?id=$id");
-        supportActionBar?.setDisplayHomeAsUpEnabled(true);
-        supportActionBar?.setDisplayShowHomeEnabled(true);
+
+
+        setUpListeners()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.toolbar_menu, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return super.onOptionsItemSelected(item)
+    private fun setUpListeners() {
+        imageviewbacktoolbar.setOnClickListener {
+            overridePendingTransition(R.anim.enter, R.anim.exit)
+            finish()
+        }
     }
 
 
