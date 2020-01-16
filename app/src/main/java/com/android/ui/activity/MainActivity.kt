@@ -11,9 +11,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 import com.android.ui.fragment.DashBoardFragment
 import com.android.ui.fragment.DrawerFragment
 import com.vaibhavi.android.R
+import com.vaibhavi.android.changeFragmentForBottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar.*
 
@@ -23,12 +25,16 @@ class MainActivity : AppCompatActivity(),DrawerFragment.FragmentDrawerListener{
     private lateinit var drawerFragment: DrawerFragment
 
 
+    private val fragmentManager: FragmentManager by lazy {
+        supportFragmentManager
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(custom_toolbar)
-        custom_toolbar.setTitleTextColor(Color.WHITE);
+        custom_toolbar.setTitleTextColor(Color.WHITE)
+        custom_toolbar.title = getString(R.string.dashboard)
         drawerFragment = supportFragmentManager.findFragmentById(R.id.fragment_navigation_drawer) as DrawerFragment
         drawerFragment.init(R.id.fragment_navigation_drawer, drawer_layout, custom_toolbar)
         displayView(0)
@@ -82,26 +88,27 @@ class MainActivity : AppCompatActivity(),DrawerFragment.FragmentDrawerListener{
     }
 
 
-    public fun displayView(position: Int) {
-        var fragment: Fragment? = null
+     fun displayView(position: Int) {
         var title = getString(R.string.app_name)
         when (position) {
             0 -> {
-                fragment = DashBoardFragment()
-                title = getString(R.string.dashboard)
+                fragmentManager.changeFragmentForBottomNavigationView(
+                    R.id.main_content,
+                    DashBoardFragment()
+                )
             }
 
             else -> {
             }
         }
 
-        if (fragment != null) {
-            val fragmentManager = supportFragmentManager
-            val fragmentTransaction = fragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.main_content, fragment)
-            fragmentTransaction.commit()
-            supportActionBar?.title = title
-        }
+//        if (fragment != null) {
+//            val fragmentManager = supportFragmentManager
+//            val fragmentTransaction = fragmentManager.beginTransaction()
+//            fragmentTransaction.replace(R.id.main_content, fragment)
+//            fragmentTransaction.commit()
+//            supportActionBar?.title = title
+//        }
     }
 
     override fun onDrawerItemSelected(view: View, position: Int) {

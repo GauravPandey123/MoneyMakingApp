@@ -16,8 +16,12 @@ import com.android.model.dashboard.ServicesItem
 import com.android.ui.activity.DashBoardDetailActvity
 import com.android.ui.adapter.DashBoardAdapter
 import com.android.ui.viewmodel.DashBoardViewModel
+import com.google.android.material.snackbar.Snackbar
 import com.vaibhavi.android.R
+import com.vaibhavi.android.isOnline
+import com.vaibhavi.android.showSnackbar
 import kotlinx.android.synthetic.main.dashboard_fragemnt.*
+import kotlinx.android.synthetic.main.sorry_no_data_aviliable.*
 
 class DashBoardFragment : Fragment() {
 
@@ -44,24 +48,43 @@ class DashBoardFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        swiperefreshLayoutCartList.setOnRefreshListener {
+            dashBoardArrayList.clear()
+            webservice()
+        }
         setUpElements()
     }
 
     private fun setUpElements() {
         dashBoardArrayList = ArrayList()
-        setUpWebService()
+        webservice()
+    }
 
+    private fun webservice(){
+        context?.isOnline()?.let {
+            if (it) {
+                setUpWebService()
+            } else {
+                constraintLayout.showSnackbar(
+                    resources.getString(R.string.pleasecheckinternet),
+                    Snackbar.LENGTH_SHORT
+                )
+            }
+        }
     }
 
     private fun setUpWebService() {
         dashBoardViewModel.dashBoarddata().observe(this, Observer {
             val dashBaordResponse = it.response as DashBaordResponse
             if (dashBaordResponse.success) {
+                swiperefreshLayoutCartList.isRefreshing = false
                 contatinProgresBarDashBoardData.visibility = View.GONE
                 getDashBoardDataResponse(dashBaordResponse.services)
             } else {
+                swiperefreshLayoutCartList.isRefreshing = false
                 contatinProgresBarDashBoardData.visibility = View.GONE
-
+                constraintLayout_feedsEmptyView_parent.visibility= View.VISIBLE
+                recyclerViewDashBoard.setEmptyView(constraintLayout_feedsEmptyView_parent)
             }
         })
     }

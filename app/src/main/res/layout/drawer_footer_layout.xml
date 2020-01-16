@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/textViewPrivacyPolicy"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_10dp"
         android:text="@string/privacy_policy"
@@ -27,7 +27,7 @@
 
     <TextView
         android:id="@+id/textViewSetting"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_10dp"
         android:text="@string/setting"
@@ -46,7 +46,7 @@
 
     <TextView
         android:id="@+id/textViewMoneyMake"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_10dp"
         android:text="@string/about"

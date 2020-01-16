@@ -21,15 +21,15 @@ import com.android.ui.activity.PrivacyPolicyActivity
 import com.android.ui.adapter.NavigationAdapter
 import com.android.ui.viewmodel.DashBoardViewModel
 import com.vaibhavi.android.R
+import com.vaibhavi.android.changeFragmentForBottomNavigationView
 import kotlinx.android.synthetic.main.drawer_footer_layout.*
 import kotlinx.android.synthetic.main.drawer_header_layout.*
 import kotlinx.android.synthetic.main.navigation_drawer_fragment.*
+import kotlinx.android.synthetic.main.sorry_no_data_aviliable.*
 import kotlin.collections.ArrayList
 
 
 class DrawerFragment : Fragment() {
-
-    private lateinit var adapter: NavigationAdapter
 
     private var drawerListener: FragmentDrawerListener? = null
     private var mDrawerLayout: DrawerLayout? = null
@@ -62,7 +62,11 @@ class DrawerFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         dashBoardArrayList = ArrayList()
         setUpWebService()
-        textViewHome.setOnClickListener{
+        textViewHome.setOnClickListener {
+            activity?.supportFragmentManager?.changeFragmentForBottomNavigationView(
+                R.id.main_content,
+                DashBoardFragment()
+            )
         }
 
         textViewPrivacyPolicy.setOnClickListener {
@@ -72,7 +76,6 @@ class DrawerFragment : Fragment() {
         }
 
     }
-
 
 
     private fun setUpWebService() {
@@ -103,16 +106,16 @@ class DrawerFragment : Fragment() {
         if (servicesItem is ServicesItem) {
             when (event) {
                 DashBoardEnum.HomeEvent.event ->
-                    sendtonextActvity(servicesItem.id,servicesItem.title)
+                    sendtonextActvity(servicesItem.id, servicesItem.title)
 
             }
         }
     }
 
-    private fun sendtonextActvity(id: String?,title: String ?) {
+    private fun sendtonextActvity(id: String?, title: String?) {
         val intent = Intent(activity, DashBoardDetailActvity::class.java)
         intent.putExtra("id", id)
-        intent.putExtra("title",title)
+        intent.putExtra("title", title)
         startActivity(intent)
         mDrawerLayout?.closeDrawer(containerView!!)
         activity?.overridePendingTransition(R.anim.enter, R.anim.exit)
