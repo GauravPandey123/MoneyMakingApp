@@ -67,6 +67,9 @@ class DrawerFragment : Fragment() {
                 R.id.main_content,
                 DashBoardFragment()
             )
+
+            mDrawerLayout?.closeDrawer(containerView!!)
+
         }
 
         textViewPrivacyPolicy.setOnClickListener {
