@@ -15,7 +15,7 @@
     <string name="home">Home</string>
     <string name="title">Title</string>
     <string name="pleasecheckinternet">Please Check Internet Connection</string>
-    <string name="no_data_aviliable">Sorry No Data Aviliable</string>
+    <string name="no_data_aviliable">Sorry No Data Available</string>
 
     <string-array name="nav_drawer_labels">
         <item>@string/nav_item_one</item>

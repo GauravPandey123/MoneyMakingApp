@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/constraintLayoutRoot"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/constraintLayoutRoot">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_8dp"
-        app:cardCornerRadius="@dimen/_8dp"
         app:cardBackgroundColor="@android:color/darker_gray"
+        app:cardCornerRadius="@dimen/_8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -20,22 +20,37 @@
             android:layout_height="wrap_content">
 
 
-            <ImageView
-                android:id="@+id/imageViewDashBoardItem"
+            <FrameLayout
+                android:id="@+id/frameLayoutDashBoard"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_160dp"
-                android:background="@drawable/gradient"
-                android:scaleType="fitXY"
-                android:src="@drawable/dashboard" />
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:id="@+id/imageViewDashBoardItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_160dp"
+                    android:background="@drawable/gradient"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/dashboard" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_160dp"
+
+                    android:background="@drawable/gradient_shape" />
+
+            </FrameLayout>
 
             <TextView
                 android:id="@+id/textViewDashBoardTitle"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_8dp"
                 android:layout_marginTop="@dimen/_120dp"
                 android:layout_marginRight="@dimen/_8dp"
                 android:text="@string/tittle"
+                android:background="@drawable/gradient_shape"
                 android:textColor="@color/white"
                 android:textSize="@dimen/font_20sp" />
 
@@ -43,11 +58,11 @@
                 android:id="@+id/textViewDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/frameLayoutDashBoard"
                 android:layout_margin="@dimen/_12sdp"
-                android:textSize="@dimen/font_sixteen"
+                android:text="@string/way"
                 android:textColor="@color/dark_grey"
-                android:layout_below="@+id/imageViewDashBoardItem"
-                android:text="@string/way"/>
+                android:textSize="@dimen/font_sixteen" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
