@@ -30,7 +30,7 @@ class DashBoardAdapter(val context: Context?, val dashBoardArrayList: ArrayList<
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: DashBoardViewHolder, position: Int) {
         val dashBoardArrayListData = dashBoardArrayList[position]
-        Glide.with(context!!).load(dashBoardArrayList[position].image).into(holder.imageView)
+        Glide.with(context!!).load(dashBoardArrayList[position].image).error(R.drawable.ic_image_place_holder).placeholder(R.drawable.ic_image_place_holder).into(holder.imageView)
         holder.textViewDashBoardTitle.text = dashBoardArrayList[position].title
         holder.textViewDescription.text = "Way No " + dashBoardArrayListData.wayNo
         holder.constraintLayoutRoot.setOnClickListener {

@@ -14,8 +14,8 @@ import com.bumptech.glide.Glide
 import com.vaibhavi.android.R
 
 class NavigationAdapter(
-    val context: Context?,
-    val arrayListItem: ArrayList<ServicesItem>,
+    private val context: Context?,
+    private val arrayListItem: ArrayList<ServicesItem>,
     val listener: (String, Any) -> Unit
 ) :
     RecyclerView.Adapter<NavigationAdapter.NavigationViewHolder>() {
