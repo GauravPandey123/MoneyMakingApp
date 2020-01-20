@@ -1,33 +1,55 @@
 package com.android.model.dashboard
 
+import androidx.annotation.NonNull
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import java.lang.NumberFormatException
 
+@Entity(tableName = "service_table")
 data class ServicesItem(
 
 	@field:SerializedName("way_no")
-	val wayNo: String? = null,
+	val wayNo: String?,
 
 	@field:SerializedName("service_image")
-	val image: String? = null,
+	val image: String? ,
 
 	@field:SerializedName("icon_image")
-	val iconimage: String? = null,
+	val iconimage: String? ,
 
 	@field:SerializedName("created")
-	val created: String? = null,
+	val created: String? ,
 
 	@field:SerializedName("description")
-	val description: String? = null,
+	val description: String? ,
 
+	@PrimaryKey
+	@NonNull
 	@field:SerializedName("service_id")
-	val id: String? = null,
+	val id: String,
 
 	@field:SerializedName("title")
-	val title: String? = null,
+	val title: String? ,
 
 	@field:SerializedName("updated")
-	val updated: String? = null,
+	val updated: String? ,
 
 	@field:SerializedName("status")
-	val status: String? = null
-)
+	val status: String?
+) {
+	override fun equals(other: Any?): Boolean {
+		return this.id == (other as ServicesItem).id
+	}
+
+	override fun hashCode(): Int {
+		return try {
+			id.hashCode()
+		} catch (e: NullPointerException) {
+			0
+		} catch (e: NumberFormatException) {
+			0
+		}
+
+	}
+}

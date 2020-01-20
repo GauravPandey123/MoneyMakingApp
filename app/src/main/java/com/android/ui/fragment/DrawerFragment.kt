@@ -20,8 +20,11 @@ import com.android.ui.activity.MainActivity
 import com.android.ui.activity.PrivacyPolicyActivity
 import com.android.ui.adapter.NavigationAdapter
 import com.android.ui.viewmodel.DashBoardViewModel
+import com.google.android.material.snackbar.Snackbar
 import com.vaibhavi.android.R
 import com.vaibhavi.android.changeFragmentForBottomNavigationView
+import com.vaibhavi.android.isOnline
+import com.vaibhavi.android.showSnackbar
 import kotlinx.android.synthetic.main.drawer_footer_layout.*
 import kotlinx.android.synthetic.main.drawer_header_layout.*
 import kotlinx.android.synthetic.main.navigation_drawer_fragment.*
@@ -61,7 +64,16 @@ class DrawerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         dashBoardArrayList = ArrayList()
-        setUpWebService()
+        context?.isOnline()?.let {
+            if (it) {
+                setUpWebService()
+            } else {
+                relativeLayoutDrawer.showSnackbar(
+                    resources.getString(R.string.pleasecheckinternet),
+                    Snackbar.LENGTH_SHORT
+                )
+            }
+        }
         textViewHome.setOnClickListener {
             activity?.supportFragmentManager?.changeFragmentForBottomNavigationView(
                 R.id.main_content,

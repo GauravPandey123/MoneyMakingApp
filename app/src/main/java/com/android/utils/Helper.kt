@@ -10,7 +10,9 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.*
 import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
@@ -27,6 +29,7 @@ import android.view.animation.AnimationUtils
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -301,10 +304,6 @@ fun Long.showTime(): String {
 
 
 
-
-
-
-
 fun Context.isOnline(): Boolean {
 
     val cm = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -312,6 +311,7 @@ fun Context.isOnline(): Boolean {
     //should check null because in airplane mode it will be null
     return netInfo != null && netInfo.isConnected
 }
+
 
 
 
